@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+
+        <!-- Income Section -->
+        <section class="section income-section">
+            <h2>Income</h2>
+            <form id="income-form">
+                <input type="text" id="income-source" placeholder="Income Source" required>
+                <input type="number" id="income-amount" placeholder="Amount" required>
+                <input type="date" id="income-date" required>
+                <button type="submit">Add Income</button>
+            </form>
+            <div class="total-display">
+                <strong>Total Income:</strong> ₹<span id="total-income">0</span>
+            </div>
+        </section>
+
+        <!-- Savings Section -->
+        <section class="section savings-section">
+            <h2>Savings</h2>
+            <form id="savings-form">
+                <input type="number" id="savings-amount" placeholder="Amount" required>
+                <button type="submit">Add Savings</button>
+            </form>
+            <div class="total-display">
+                <strong>Total Savings:</strong> ₹<span id="total-savings">0</span>
+            </div>
+        </section>
+
+        <!-- Expense Section -->
+        <section class="section expense-section">
+            <h2>Expenses</h2>
+            <form id="expense-form">
+                <input type="text" id="expense-name" placeholder="Expense Name" required>
+                <input type="number" id="expense-amount" placeholder="Amount" required>
+                <select id="expense-category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Housing/Rent">Housing/Rent</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Car Insurance">Car Insurance</option>
+                    <option value="Travel Expenses">Travel Expenses</option>
+                    <option value="Food/Groceries">Food/Groceries</option>
+                    <option value="Utility Bills">Utility Bills</option>
+                    <option value="Cell Phone">Cell Phone</option>
+                    <option value="Childcare">Childcare</option>
+                    <option value="Health Insurance">Health Insurance</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="date" id="expense-date" required>
+                <button type="submit">Add Expense</button>
+            </form>
+
+            <div class="expense-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expense Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-list"></tbody>
+                </table>
+            </div>
+
+            <div class="total-display">
+                <strong>Total Expenses:</strong> ₹<span id="total-amount">0</span>
+            </div>
+        </section>
+
+        <!-- Remaining Balance Section -->
+        <section class="section balance-section">
+            <div class="total-display">
+                <strong>Remaining Balance (after Savings):</strong> ₹<span id="remaining-balance">0</span>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="section filter-section">
+            <label for="filter-category">Filter by Category:</label>
+            <select id="filter-category">
+                <option value="All">All</option>
+                <option value="Housing/Rent">Housing/Rent</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Car Insurance">Car Insurance</option>
+                <option value="Travel Expenses">Travel Expenses</option>
+                <option value="Food/Groceries">Food/Groceries</option>
+                <option value="Utility Bills">Utility Bills</option>
+                <option value="Cell Phone">Cell Phone</option>
+                <option value="Childcare">Childcare</option>
+                <option value="Health Insurance">Health Insurance</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Other">Other</option>
+            </select>
+        </section>
+
+        <!-- Chart Section -->
+        <section class="section chart-section">
+            <h2>Monthly Expense Tracking</h2>
+            <canvas id="expenseChart"></canvas>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
